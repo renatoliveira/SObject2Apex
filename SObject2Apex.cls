@@ -41,6 +41,9 @@ global class SObject2Apex {
         if (fieldValue == null) {
             return null;
         }
+        if (fieldValue instanceof Integer || fieldValue instanceof Decimal) {
+            return String.valueOf(fieldValue);
+        }
         return '\'' + String.valueOf(fieldValue) + '\'';
     }
 }
